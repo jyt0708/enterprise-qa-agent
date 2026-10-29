@@ -1,0 +1,19 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build outputs
+*.egg-info/
+build/
+dist/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Editor settings
+.vscode/
+.idea/
