@@ -1,0 +1,58 @@
+{
+  "run_kind": "live_model",
+  "requested": [
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08"
+  ],
+  "results": [
+    {
+      "id": "T02",
+      "status": "needs_clarification",
+      "passed": false,
+      "failures": [
+        "Answer is missing expected text: 30",
+        "Answer is missing expected text: 15"
+      ],
+      "counts": {
+        "model_calls": 7,
+        "tool_calls": 4
+      },
+      "trace": "T02.json"
+    },
+    {
+      "id": "T03",
+      "status": "incomplete",
+      "passed": false,
+      "failures": [
+        "Unexpected status: incomplete"
+      ],
+      "counts": {
+        "model_calls": 10,
+        "tool_calls": 8
+      },
+      "trace": "T03.json"
+    },
+    {
+      "id": "T04",
+      "status": "tool_error",
+      "passed": false,
+      "failures": [
+        "Unexpected status: tool_error",
+        "Missing expected source citations.",
+        "Answer is missing expected text: 3",
+        "Answer is missing expected text: 工作日"
+      ],
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0
+      },
+      "trace": "T04.json"
+    }
+  ],
+  "review_note": "Automated checks are necessary but do not prove semantic entailment. Inspect quotations and claims."
+}

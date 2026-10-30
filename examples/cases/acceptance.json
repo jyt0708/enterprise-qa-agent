@@ -1,0 +1,10 @@
+[
+  {"id":"T01","name":"明确答案","question":"年假要提前多久申请？","expected_status":["answered"],"expected_docs":["D03"],"expected_text":["3", "工作日"]},
+  {"id":"T02","name":"文档冲突","question":"报销期限多久？","expected_status":["needs_clarification"],"expected_docs":["D01","D02"],"expected_text":["30","15"],"expect_conflict":true},
+  {"id":"T03","name":"资料外问题","question":"公司今年年终奖发几个月？","expected_status":["insufficient_evidence"],"minimum_searches":2},
+  {"id":"T04","name":"相似问题改写","question":"想休年假，最晚什么时候提申请？","expected_status":["answered"],"expected_docs":["D03"],"expected_text":["3","工作日"]},
+  {"id":"T05","name":"上下文追问","question":"那谁来审批？","history":[{"role":"user","content":"年假要提前多久申请？"},{"role":"assistant","content":"根据年假申请时间规定，年假应提前3个工作日提交。"}],"expected_status":["answered"],"expected_docs":["D04"],"expected_text":["直属主管"]},
+  {"id":"T06","name":"文档内容替换","question":"年假要提前多久申请？","documents":"data/variants/annual_leave_5_days.json","expected_status":["answered"],"expected_docs":["D03"],"expected_text":["5","工作日"],"forbidden_text":["3个工作日"]},
+  {"id":"T07","name":"冲突消除","question":"报销期限多久？","documents":"data/variants/without_d02.json","expected_status":["answered"],"expected_docs":["D01"],"expected_text":["30"],"forbidden_docs":["D02"]},
+  {"id":"T08","name":"工具暂时失败","question":"年假要提前多久申请？","failure_mode":"read_once","expected_status":["answered"],"expected_docs":["D03"],"expected_text":["3","工作日"],"expect_recovery":true}
+]

@@ -1,0 +1,160 @@
+{
+  "question": "报销期限多久？",
+  "history": [],
+  "result": {
+    "status": "answered",
+    "answer": "根据《费用报销管理办法》（版本日期：2026-01-10），报销申请应在费用发生后30天内提交。\n\n引用原文：“报销申请应在费用发生后30天内提交。”（D01-C01，申请期限）",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "version_date": "2026-01-10",
+        "quote": "报销申请应在费用发生后30天内提交。"
+      }
+    ],
+    "conflicts": [],
+    "gaps": [],
+    "follow_up": null
+  },
+  "stop_reason": "model_finished",
+  "counts": {
+    "model_calls": 4,
+    "tool_calls": 3
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "rationale": "查找关于报销期限的公司制度文档",
+      "observation": {
+        "ok": true,
+        "query": "报销期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销管理办法",
+            "version_date": "2026-01-10",
+            "score": 0.2103,
+            "previews": [
+              {
+                "chunk_id": "D01-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后30天内提交。"
+              },
+              {
+                "chunk_id": "D01-C02",
+                "heading": "申请材料",
+                "excerpt": "提交报销申请时，应附发票和费用明细。缺少发票时，应补齐材料后再提交。"
+              }
+            ]
+          }
+        ],
+        "total_matches": 1,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 1 matching documents; returned ['D01']; truncated=False",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 2,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "rationale": "阅读费用报销管理办法完整内容，确认报销申请期限及适用范围",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销管理办法",
+          "version_date": "2026-01-10",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D01-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后30天内提交。"
+            },
+            {
+              "chunk_id": "D01-C02",
+              "heading": "申请材料",
+              "text": "提交报销申请时，应附发票和费用明细。缺少发票时，应补齐材料后再提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D01 (2026-01-10), chunks: ['D01-C01', 'D01-C02']; scope=None; supersedes=None",
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "action": "finish",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "status": "answered",
+        "answer": "根据《费用报销管理办法》（版本日期：2026-01-10），报销申请应在费用发生后30天内提交。\n\n引用原文：“报销申请应在费用发生后30天内提交。”（D01-C01，申请期限）",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "chunk_id": "D01-C01",
+            "version_date": "2026-01-10",
+            "quote": "报销申请应在费用发生后30天内提交。"
+          }
+        ],
+        "conflicts": [],
+        "gaps": [],
+        "follow_up": null
+      },
+      "rationale": "已找到并阅读《费用报销管理办法》，明确规定报销申请期限为费用发生后30天内，无冲突证据，可直接回答。",
+      "observation": {
+        "ok": true,
+        "status": "answered",
+        "citation_count": 1
+      },
+      "return_summary": "{\"ok\": true, \"status\": \"answered\", \"citation_count\": 1}",
+      "next_action": "END:model_finished"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-30T07:55:06.985936+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T07",
+  "case_name": "冲突消除",
+  "check_failures": []
+}

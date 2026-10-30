@@ -1,0 +1,223 @@
+{
+  "question": "年假要提前多久申请？",
+  "history": [],
+  "result": {
+    "status": "answered",
+    "answer": "根据公司内部规定，年假申请应提前3个工作日提交。",
+    "citations": [
+      {
+        "doc_id": "D03",
+        "chunk_id": "D03-C01",
+        "version_date": "2026-02-01",
+        "quote": "年假申请应提前3个工作日提交。"
+      }
+    ],
+    "conflicts": [],
+    "gaps": [],
+    "follow_up": null
+  },
+  "stop_reason": "model_finished",
+  "counts": {
+    "model_calls": 8,
+    "tool_calls": 3
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 2,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 3,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 4,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 5,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 6,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "query": "年假 提前 申请 时间 规定"
+      },
+      "rationale": "搜索年假申请的提前时间要求",
+      "observation": {
+        "ok": true,
+        "query": "年假 提前 申请 时间 规定",
+        "hits": [
+          {
+            "doc_id": "D03",
+            "title": "年假申请时间规定",
+            "version_date": "2026-02-01",
+            "score": 0.3577,
+            "previews": [
+              {
+                "chunk_id": "D03-C01",
+                "heading": "提前申请时间",
+                "excerpt": "年假申请应提前3个工作日提交。"
+              },
+              {
+                "chunk_id": "D03-C02",
+                "heading": "申请内容",
+                "excerpt": "申请人应在内部人事系统填写休假开始日期、结束日期和工作交接安排。"
+              }
+            ]
+          }
+        ],
+        "total_matches": 1,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 1 matching documents; returned ['D03']; truncated=False",
+      "next_action": "read_document"
+    },
+    {
+      "step": 7,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "doc_id": "D03",
+        "chunk_id": "D03-C01"
+      },
+      "rationale": "阅读年假提前申请时间的具体规定",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D03",
+          "title": "年假申请时间规定",
+          "version_date": "2026-02-01",
+          "scope": "适用于本公司正式员工的年假申请。",
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D03-C01",
+              "heading": "提前申请时间",
+              "text": "年假申请应提前3个工作日提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D03 (2026-02-01), chunks: ['D03-C01']; scope=适用于本公司正式员工的年假申请。; supersedes=None",
+      "next_action": "finish"
+    },
+    {
+      "step": 8,
+      "actor": "model",
+      "action": "finish",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "status": "answered",
+        "answer": "根据公司内部规定，年假申请应提前3个工作日提交。",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "chunk_id": "D03-C01",
+            "version_date": "2026-02-01",
+            "quote": "年假申请应提前3个工作日提交。"
+          }
+        ],
+        "conflicts": [],
+        "gaps": [],
+        "follow_up": null
+      },
+      "rationale": "已阅读相关文档并提供确切引文支持。",
+      "observation": {
+        "ok": true,
+        "status": "answered",
+        "citation_count": 1
+      },
+      "return_summary": "{\"ok\": true, \"status\": \"answered\", \"citation_count\": 1}",
+      "next_action": "END:model_finished"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-30T07:49:44.254312+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T01",
+  "case_name": "明确答案",
+  "check_failures": []
+}

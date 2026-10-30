@@ -1,0 +1,228 @@
+{
+  "question": "公司今年年终奖发几个月？",
+  "history": [],
+  "result": {
+    "status": "incomplete",
+    "answer": "任务未完成，无法提供可靠答案。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "已达到工具调用上限，尚未形成通过校验的最终答复。"
+    ],
+    "follow_up": null
+  },
+  "stop_reason": "tool_call_limit",
+  "counts": {
+    "model_calls": 10,
+    "tool_calls": 8
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "query": "年终奖"
+      },
+      "rationale": "Search for year-end bonus policy documents in the corporate corpus.",
+      "observation": {
+        "ok": true,
+        "query": "年终奖",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "奖金"
+      },
+      "rationale": "Reformulate with broader term \"bonus\" to find compensation-related policies.",
+      "observation": {
+        "ok": true,
+        "query": "奖金",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "query": "bonus"
+      },
+      "rationale": "Search for English term \"bonus\" to find compensation policies.",
+      "observation": {
+        "ok": true,
+        "query": "bonus",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "liquid/lfm-2.5-2.6b:free",
+      "arguments": {
+        "query": "年终奖金"
+      },
+      "rationale": "Search for year-end bonus amount/terms in the corporate corpus.",
+      "observation": {
+        "ok": true,
+        "query": "年终奖金",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "绩效薪酬"
+      },
+      "rationale": "Search for performance compensation terms that may cover year-end bonuses.",
+      "observation": {
+        "ok": true,
+        "query": "绩效薪酬",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 6,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 7,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "薪酬"
+      },
+      "rationale": "Search for general compensation/salary terms to understand what HR policies exist in the corpus.",
+      "observation": {
+        "ok": true,
+        "query": "薪酬",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 8,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 9,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "query": "员工奖金"
+      },
+      "rationale": "Search for employee bonus policy terms in the corporate corpus.",
+      "observation": {
+        "ok": true,
+        "query": "员工奖金",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "finish"
+    },
+    {
+      "step": 10,
+      "actor": "model",
+      "action": "finish",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "status": "insufficient_evidence",
+        "answer": "The available documents do not establish how many months the year-end bonus is paid this year. The corpus contains no policies or information about year-end bonuses, compensation, or related payment terms."
+      },
+      "rationale": "All searches for year-end bonus, compensation, and related terms returned zero matches, indicating the corpus lacks the required policy information.",
+      "observation": {
+        "ok": false,
+        "error": "invalid_arguments",
+        "details": [
+          {
+            "loc": [],
+            "message": "Value error, An unfinished answer must explain its evidence gaps."
+          }
+        ]
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"invalid_arguments\", \"details\": [{\"loc\": [], \"message\": \"Value error, An unfinished answer must explain its evidence gaps.\"}]}",
+      "next_action": "END:tool_call_limit"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-29T04:22:24.238323+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T03",
+  "case_name": "资料外问题",
+  "check_failures": [
+    "Unexpected status: incomplete"
+  ]
+}

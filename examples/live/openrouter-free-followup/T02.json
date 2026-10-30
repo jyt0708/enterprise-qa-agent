@@ -1,0 +1,246 @@
+{
+  "question": "报销期限多久？",
+  "history": [],
+  "result": {
+    "status": "needs_clarification",
+    "answer": "发现两份政策对报销申请期限有不同规定，存在冲突：",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "version_date": "2026-01-10",
+        "quote": "报销申请应在费用发生后30天内提交。"
+      },
+      {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01",
+        "version_date": "2026-04-15",
+        "quote": "报销申请应在费用发生后15天内提交。"
+      }
+    ],
+    "conflicts": [
+      "《费用报销管理办法》(D01, 2026-01-10) 规定报销申请应在费用发生后30天内提交，而《费用报销办理指引》(D02, 2026-04-15) 规定应在费用发生后15天内提交。两份文件均未标明适用范围或替代关系，无法确定优先级。"
+    ],
+    "gaps": [
+      "缺乏两份政策的适用范围、优先级或替代关系说明，无法确定哪项规定生效。"
+    ],
+    "follow_up": "请确认应适用哪份政策，或提供权威澄清文件。"
+  },
+  "stop_reason": "model_finished",
+  "counts": {
+    "model_calls": 7,
+    "tool_calls": 4
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 2,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "query": "报销 期限"
+      },
+      "rationale": "Search for reimbursement period policy in Chinese documents.",
+      "observation": {
+        "ok": true,
+        "query": "报销 期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销管理办法",
+            "version_date": "2026-01-10",
+            "score": 0.1919,
+            "previews": [
+              {
+                "chunk_id": "D01-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后30天内提交。"
+              }
+            ]
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销办理指引",
+            "version_date": "2026-04-15",
+            "score": 0.1905,
+            "previews": [
+              {
+                "chunk_id": "D02-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后15天内提交。"
+              },
+              {
+                "chunk_id": "D02-C02",
+                "heading": "提交入口",
+                "excerpt": "报销申请通过内部费用管理系统提交，提交后可在该系统查询处理进度。"
+              }
+            ]
+          }
+        ],
+        "total_matches": 2,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 2 matching documents; returned ['D01', 'D02']; truncated=False",
+      "next_action": "read_document"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "liquid/lfm-2.5-2.6b:free",
+      "arguments": {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01"
+      },
+      "rationale": "Read the full content of the reimbursement management measures document to understand the reimbursement deadline policy.",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销管理办法",
+          "version_date": "2026-01-10",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D01-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后30天内提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D01 (2026-01-10), chunks: ['D01-C01']; scope=None; supersedes=None",
+      "next_action": "read_document"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "liquid/lfm-2.5-2.6b:free",
+      "arguments": {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01"
+      },
+      "rationale": "Read the full content of the reimbursement processing guidelines to understand the reimbursement deadline policy and compare with D01.",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D02",
+          "title": "费用报销办理指引",
+          "version_date": "2026-04-15",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D02-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后15天内提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D02 (2026-04-15), chunks: ['D02-C01']; scope=None; supersedes=None",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 6,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "finish"
+    },
+    {
+      "step": 7,
+      "actor": "model",
+      "action": "finish",
+      "actual_model": "liquid/lfm-2.5-2.6b:free",
+      "arguments": {
+        "status": "needs_clarification",
+        "answer": "发现两份政策对报销申请期限有不同规定，存在冲突：",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "chunk_id": "D01-C01",
+            "version_date": "2026-01-10",
+            "quote": "报销申请应在费用发生后30天内提交。"
+          },
+          {
+            "doc_id": "D02",
+            "chunk_id": "D02-C01",
+            "version_date": "2026-04-15",
+            "quote": "报销申请应在费用发生后15天内提交。"
+          }
+        ],
+        "conflicts": [
+          "《费用报销管理办法》(D01, 2026-01-10) 规定报销申请应在费用发生后30天内提交，而《费用报销办理指引》(D02, 2026-04-15) 规定应在费用发生后15天内提交。两份文件均未标明适用范围或替代关系，无法确定优先级。"
+        ],
+        "gaps": [
+          "缺乏两份政策的适用范围、优先级或替代关系说明，无法确定哪项规定生效。"
+        ],
+        "follow_up": "请确认应适用哪份政策，或提供权威澄清文件。"
+      },
+      "rationale": "两份文件对同一问题有不同要求，且无范围/优先级元数据，无法确定优先级。",
+      "observation": {
+        "ok": true,
+        "status": "needs_clarification",
+        "citation_count": 2
+      },
+      "return_summary": "{\"ok\": true, \"status\": \"needs_clarification\", \"citation_count\": 2}",
+      "next_action": "END:model_finished"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-29T04:21:29.453369+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T02",
+  "case_name": "文档冲突",
+  "check_failures": [
+    "Answer is missing expected text: 30",
+    "Answer is missing expected text: 15"
+  ]
+}

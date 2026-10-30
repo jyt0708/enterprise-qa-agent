@@ -1,0 +1,110 @@
+{
+  "run_kind": "live_model",
+  "requested": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08"
+  ],
+  "results": [
+    {
+      "id": "T01",
+      "status": "answered",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 8,
+        "tool_calls": 3
+      },
+      "trace": "T01.json"
+    },
+    {
+      "id": "T02",
+      "status": "needs_clarification",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 7,
+        "tool_calls": 4
+      },
+      "trace": "T02.json"
+    },
+    {
+      "id": "T03",
+      "status": "insufficient_evidence",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 6,
+        "tool_calls": 4
+      },
+      "trace": "T03.json"
+    },
+    {
+      "id": "T04",
+      "status": "answered",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 10,
+        "tool_calls": 3
+      },
+      "trace": "T04.json"
+    },
+    {
+      "id": "T05",
+      "status": "answered",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 7,
+        "tool_calls": 6
+      },
+      "trace": "T05.json"
+    },
+    {
+      "id": "T06",
+      "status": "answered",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 6,
+        "tool_calls": 3
+      },
+      "trace": "T06.json"
+    },
+    {
+      "id": "T07",
+      "status": "answered",
+      "passed": true,
+      "failures": [],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3
+      },
+      "trace": "T07.json"
+    },
+    {
+      "id": "T08",
+      "status": "tool_error",
+      "passed": false,
+      "failures": [
+        "Unexpected status: tool_error",
+        "Missing expected source citations.",
+        "Answer is missing expected text: 3",
+        "Answer is missing expected text: 工作日",
+        "Expected a model-selected recovery after the injected read failure."
+      ],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 0
+      },
+      "trace": "T08.json"
+    }
+  ],
+  "review_note": "Automated checks are necessary but do not prove semantic entailment. Inspect quotations and claims."
+}

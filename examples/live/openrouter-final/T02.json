@@ -1,0 +1,342 @@
+{
+  "question": "报销期限多久？",
+  "history": [],
+  "result": {
+    "status": "incomplete",
+    "answer": "任务未完成，无法提供可靠答案。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "已达到模型决策次数上限，尚未形成通过校验的最终答复。"
+    ],
+    "follow_up": null
+  },
+  "stop_reason": "model_call_limit",
+  "counts": {
+    "model_calls": 10,
+    "tool_calls": 7
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "query": "报销期限"
+      },
+      "rationale": "Search for reimbursement deadline policies",
+      "observation": {
+        "ok": true,
+        "query": "报销期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销管理办法",
+            "version_date": "2026-01-10",
+            "score": 0.1919,
+            "previews": [
+              {
+                "chunk_id": "D01-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后30天内提交。"
+              }
+            ]
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销办理指引",
+            "version_date": "2026-04-15",
+            "score": 0.1905,
+            "previews": [
+              {
+                "chunk_id": "D02-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后15天内提交。"
+              },
+              {
+                "chunk_id": "D02-C02",
+                "heading": "提交入口",
+                "excerpt": "报销申请通过内部费用管理系统提交，提交后可在该系统查询处理进度。"
+              }
+            ]
+          }
+        ],
+        "total_matches": 2,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 2 matching documents; returned ['D01', 'D02']; truncated=False",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01"
+      },
+      "rationale": "Read the 30-day reimbursement policy from D01",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销管理办法",
+          "version_date": "2026-01-10",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D01-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后30天内提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D01 (2026-01-10), chunks: ['D01-C01']; scope=None; supersedes=None",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01"
+      },
+      "rationale": "Read the 15-day reimbursement policy from D02",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D02",
+          "title": "费用报销办理指引",
+          "version_date": "2026-04-15",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D02-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后15天内提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D02 (2026-04-15), chunks: ['D02-C01']; scope=None; supersedes=None",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 4,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "管理办法 指引 优先 适用 范围"
+      },
+      "rationale": "Search for policy hierarchy between management measures and processing guide",
+      "observation": {
+        "ok": true,
+        "query": "管理办法 指引 优先 适用 范围",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销管理办法",
+            "version_date": "2026-01-10",
+            "score": 0.2749,
+            "previews": [
+              {
+                "chunk_id": "D01-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后30天内提交。"
+              },
+              {
+                "chunk_id": "D01-C02",
+                "heading": "申请材料",
+                "excerpt": "提交报销申请时，应附发票和费用明细。缺少发票时，应补齐材料后再提交。"
+              }
+            ]
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销办理指引",
+            "version_date": "2026-04-15",
+            "score": 0.0931,
+            "previews": [
+              {
+                "chunk_id": "D02-C01",
+                "heading": "申请期限",
+                "excerpt": "报销申请应在费用发生后15天内提交。"
+              },
+              {
+                "chunk_id": "D02-C02",
+                "heading": "提交入口",
+                "excerpt": "报销申请通过内部费用管理系统提交，提交后可在该系统查询处理进度。"
+              }
+            ]
+          }
+        ],
+        "total_matches": 2,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 2 matching documents; returned ['D01', 'D02']; truncated=False",
+      "next_action": "read_document"
+    },
+    {
+      "step": 6,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "doc_id": "D01",
+        "chunk_id": null
+      },
+      "rationale": "Read the full management measures document",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销管理办法",
+          "version_date": "2026-01-10",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D01-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后30天内提交。"
+            },
+            {
+              "chunk_id": "D01-C02",
+              "heading": "申请材料",
+              "text": "提交报销申请时，应附发票和费用明细。缺少发票时，应补齐材料后再提交。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D01 (2026-01-10), chunks: ['D01-C01', 'D01-C02']; scope=None; supersedes=None",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 7,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 8,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "arguments": {},
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "read_document"
+    },
+    {
+      "step": 9,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "cohere/north-mini-code:free",
+      "arguments": {
+        "doc_id": "D02",
+        "chunk_id": null
+      },
+      "rationale": "Read the full processing guide document",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D02",
+          "title": "费用报销办理指引",
+          "version_date": "2026-04-15",
+          "scope": null,
+          "supersedes": null,
+          "chunks": [
+            {
+              "chunk_id": "D02-C01",
+              "heading": "申请期限",
+              "text": "报销申请应在费用发生后15天内提交。"
+            },
+            {
+              "chunk_id": "D02-C02",
+              "heading": "提交入口",
+              "text": "报销申请通过内部费用管理系统提交，提交后可在该系统查询处理进度。"
+            }
+          ]
+        }
+      },
+      "return_summary": "Read D02 (2026-04-15), chunks: ['D02-C01', 'D02-C02']; scope=None; supersedes=None",
+      "next_action": "read_document"
+    },
+    {
+      "step": 10,
+      "actor": "model",
+      "action": "read_document",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "doc_id": "D02",
+        "chunk_id": "none"
+      },
+      "rationale": "Read the full processing guide document to compare with D01",
+      "observation": {
+        "ok": false,
+        "error": "chunk_not_found",
+        "doc_id": "D02",
+        "chunk_id": "none",
+        "retryable": false
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"chunk_not_found\", \"doc_id\": \"D02\", \"chunk_id\": \"none\", \"retryable\": false}",
+      "next_action": "END:model_call_limit"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-29T04:25:04.530946+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T02",
+  "case_name": "文档冲突",
+  "check_failures": [
+    "Unexpected status: incomplete",
+    "Missing expected source citations.",
+    "Answer is missing expected text: 30",
+    "Answer is missing expected text: 15",
+    "Conflict and clarification question are required."
+  ]
+}

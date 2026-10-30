@@ -1,0 +1,266 @@
+{
+  "question": "公司今年年终奖发几个月？",
+  "history": [],
+  "result": {
+    "status": "insufficient_evidence",
+    "answer": "根据现有文档，无法确定公司今年年终奖发放几个月的具体规定。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "现有知识库中未检索到关于年终奖发放月数的相关文档。"
+    ],
+    "follow_up": null
+  },
+  "stop_reason": "model_finished",
+  "counts": {
+    "model_calls": 6,
+    "tool_calls": 4
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "年终奖 发几个月"
+      },
+      "rationale": "查找公司关于年终奖发放月数的规定",
+      "observation": {
+        "ok": true,
+        "query": "年终奖 发几个月",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 2,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "arguments": {
+        "calls": []
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "query": "年终奖 发放 月数"
+      },
+      "rationale": "搜索年终奖发放月数的相关文档",
+      "observation": {
+        "ok": true,
+        "query": "年终奖 发放 月数",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "protocol_error"
+    },
+    {
+      "step": 4,
+      "actor": "runtime",
+      "action": "protocol_error",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "calls": [
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放标准",
+              "rationale": "搜索年终奖发放标准相关文档"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "公司 年终奖 发放 月份",
+              "rationale": "搜索公司年终奖发放月份"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 计算 月数",
+              "rationale": "搜索年终奖计算月数"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖政策",
+              "rationale": "搜索年终奖政策文档"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放",
+              "rationale": "搜索年终奖发放相关内容"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "奖金 月数",
+              "rationale": "搜索奖金月数相关文档"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "绩效奖金 年终",
+              "rationale": "搜索绩效奖金年终相关"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放 月份",
+              "rationale": "搜索年终奖发放月份"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放 月份 公司",
+              "rationale": "搜索公司年终奖发放月份"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 月数 发放",
+              "rationale": "搜索年终奖月数发放"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放 月份 规定",
+              "rationale": "搜索年终奖发放月份规定"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 月份",
+              "rationale": "搜索年终奖月份相关"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放 月份 标准",
+              "rationale": "搜索年终奖发放月份标准"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 月份 发放 公司",
+              "rationale": "搜索年终奖月份发放公司"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 发放 月份 标准 公司",
+              "rationale": "搜索年终奖发放月份标准公司"
+            }
+          },
+          {
+            "name": "search_documents",
+            "args": {
+              "query": "年终奖 月数",
+              "rationale": "搜索年终奖月数"
+            }
+          }
+        ]
+      },
+      "rationale": "Reject invalid action format; request a corrected action.",
+      "observation": {
+        "ok": false,
+        "error": "protocol_error",
+        "detail": "Call exactly one tool with valid JSON arguments."
+      },
+      "return_summary": "{\"ok\": false, \"error\": \"protocol_error\", \"detail\": \"Call exactly one tool with valid JSON arguments.\"}",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "action": "search_documents",
+      "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+      "arguments": {
+        "query": "年终奖 发放 月份 标准"
+      },
+      "rationale": "搜索年终奖发放月份标准相关文档",
+      "observation": {
+        "ok": true,
+        "query": "年终奖 发放 月份 标准",
+        "hits": [],
+        "total_matches": 0,
+        "truncated": false,
+        "note": "Lexical matches only. Read relevant sources before citing. Reformulate weak searches."
+      },
+      "return_summary": "Found 0 matching documents; returned []; truncated=False",
+      "next_action": "finish"
+    },
+    {
+      "step": 6,
+      "actor": "model",
+      "action": "finish",
+      "actual_model": "nvidia/nemotron-3.5-lightning:free",
+      "arguments": {
+        "status": "insufficient_evidence",
+        "answer": "根据现有文档，无法确定公司今年年终奖发放几个月的具体规定。",
+        "citations": [],
+        "conflicts": [],
+        "gaps": [
+          "现有知识库中未检索到关于年终奖发放月数的相关文档。"
+        ],
+        "follow_up": null
+      },
+      "rationale": "多次尝试不同查询均无匹配结果，表明文档中缺乏关于年终奖月数的证据。",
+      "observation": {
+        "ok": true,
+        "status": "insufficient_evidence",
+        "citation_count": 0
+      },
+      "return_summary": "{\"ok\": true, \"status\": \"insufficient_evidence\", \"citation_count\": 0}",
+      "next_action": "END:model_finished"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-30T07:50:53.396232+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T03",
+  "case_name": "资料外问题",
+  "check_failures": []
+}

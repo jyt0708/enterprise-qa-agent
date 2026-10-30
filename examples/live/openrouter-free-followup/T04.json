@@ -1,0 +1,53 @@
+{
+  "question": "想休年假，最晚什么时候提申请？",
+  "history": [],
+  "result": {
+    "status": "tool_error",
+    "answer": "任务未完成，无法提供可靠答案。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "模型调用失败（OpenAIRateLimitError），请检查连接和模型配置。"
+    ],
+    "follow_up": null
+  },
+  "stop_reason": "model_error",
+  "counts": {
+    "model_calls": 1,
+    "tool_calls": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "actor": "runtime",
+      "action": "model_error",
+      "arguments": {},
+      "rationale": "The model request failed.",
+      "observation": {
+        "ok": false,
+        "error": "OpenAIRateLimitError"
+      },
+      "return_summary": "Model request failed (OpenAIRateLimitError).",
+      "next_action": "END:model_error"
+    }
+  ],
+  "metadata": {
+    "run_kind": "live_model",
+    "model": "openrouter/free",
+    "started_at_utc": "2026-10-29T04:22:47.224270+00:00",
+    "failure_mode": "none",
+    "limits": {
+      "max_model_calls": 10,
+      "max_tool_calls": 8
+    },
+    "provider": "openrouter"
+  },
+  "case_id": "T04",
+  "case_name": "相似问题改写",
+  "check_failures": [
+    "Unexpected status: tool_error",
+    "Missing expected source citations.",
+    "Answer is missing expected text: 3",
+    "Answer is missing expected text: 工作日"
+  ]
+}
