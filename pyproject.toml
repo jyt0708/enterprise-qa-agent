@@ -8,12 +8,12 @@ version = "0.1.0"
 description = "Enterprise knowledge QA agent built with LangGraph"
 requires-python = ">=3.14"
 dependencies = [
-    "langgraph",
-    "langchain-core",
-    "langchain-openai",
-    "pydantic>=2",
-    "python-dotenv",
-    "scikit-learn",
+    "langgraph>=1.2,<2",
+    "langchain-core>=1.7,<2",
+    "langchain-openrouter>=0.2.9,<0.3",
+    "pydantic>=2,<3",
+    "python-dotenv>=1,<2",
+    "scikit-learn>=1.9,<2",
 ]
 
 [project.optional-dependencies]
