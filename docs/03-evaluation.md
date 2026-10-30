@@ -10,4 +10,22 @@
 | T06 文档内容替换 | 将 D03 的 3 个工作日改为 5 个工作日 | 答案和引用随原文改变 |
 | T07 冲突消除 | 移除 D02，再问报销期限 | 依据 D01 回答 30 天 |
 | T08 工具失败 | 首次读取失败，之后可恢复 | 模型观察错误后决定下一步，恢复后正确回答 |
-| T09 持续失败或上限 | 工具持续失败，或低预算运行 | 返回 `tool_error` 或 `incomplete` |
+
+实际可执行用例见 `examples/cases/acceptance.json`：共 8 项。
+
+## 当前验证状态
+
+完整验收：`.\.venv\Scripts\python.exe -m kb_agent.evaluate --output examples/live/full-run`
+
+
+| 运行记录 | 实际结果 | 审核结论 |
+| --- | --- | --- |
+| [明确答案](../examples/live/full-run/T01.md) | 通过；引文支持答案 |
+| [冲突追问](../examples/live/full-run/T02.md) | 通过；引文、冲突解释与追问符合要求 |
+| [资料外问题](../examples/live/full-run/T03.md) | 通过；不编造数值，返回未检索到相关文档 |
+| [相似问题改写](../examples/live/full-run/T04.md) | 通过；答案和引用文档正确 |
+| [后续追问](../examples/live/full-run/T05.md)  | 通过；回答和引用正确 |
+| [文档内容替换](../examples/live/full-run/T06.md) | 通过；答案和引用随原文改变 |
+| [冲突消除](../examples/live/full-run/T07.md) | 通过；答案正确、未引用禁止文档 |
+| [工具失败](../examples/live/full-run/T08.md) | 未完成；TooManyRequests，达到每日最高请求 |
+
