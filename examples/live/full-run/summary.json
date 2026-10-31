@@ -89,21 +89,15 @@
       "trace": "T07.json"
     },
     {
-      "id": "T08",
-      "status": "tool_error",
-      "passed": false,
-      "failures": [
-        "Unexpected status: tool_error",
-        "Missing expected source citations.",
-        "Answer is missing expected text: 3",
-        "Answer is missing expected text: 工作日",
-        "Expected a model-selected recovery after the injected read failure."
-      ],
-      "counts": {
-        "model_calls": 3,
-        "tool_calls": 0
-      },
-      "trace": "T08.json"
+    "id": "T08",
+    "status": "answered",
+    "passed": true,
+    "failures": [],
+    "counts": {
+      "model_calls": 8,
+      "tool_calls": 5
+    },
+    "trace": "T08.json"
     }
   ],
   "review_note": "Automated checks are necessary but do not prove semantic entailment. Inspect quotations and claims."

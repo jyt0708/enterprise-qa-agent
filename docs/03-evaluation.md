@@ -27,5 +27,5 @@
 | [后续追问](../examples/live/full-run/T05.md)  | 通过；回答和引用正确 |
 | [文档内容替换](../examples/live/full-run/T06.md) | 通过；答案和引用随原文改变 |
 | [冲突消除](../examples/live/full-run/T07.md) | 通过；答案正确、未引用禁止文档 |
-| [工具失败](../examples/live/full-run/T08.md) | 未完成；TooManyRequests，达到每日最高请求 |
+| [工具失败](../examples/live/full-run/T08.md) | 通过；回答和引用正确 |
 
